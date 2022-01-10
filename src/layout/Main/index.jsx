@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Movies } from '../../components'
+import { Movies, Preloader } from '../../components'
 
 import "./style.css";
 
@@ -20,7 +20,7 @@ export default class Main extends React.Component {
 
     return <main className="container content">
       {
-      movies.length ? <Movies movies={this.state.movies}/> : <h3>Loading...</h3>
+      movies.length ? <Movies movies={this.state.movies}/> : <Preloader/>
       }
 
     </main>;
