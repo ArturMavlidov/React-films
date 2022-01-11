@@ -4,14 +4,16 @@ import { Movies, Preloader, Search } from "../../components";
 
 import "./style.css";
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 export default class Main extends React.Component {
   state = {
     movies: [],
     loading: true
   };
 
-  setMovies = (str = "matrix", type="all") => {
-    fetch(`http://www.omdbapi.com/?apikey=a29f9b37&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
+  setMovies = (str = "avengers", type="all") => {
+    fetch(`http://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
       .then((response) => response.json())
       .then((data) => this.setState({ movies: data.Search, loading: false }));
   };
