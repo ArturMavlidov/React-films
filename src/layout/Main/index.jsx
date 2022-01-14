@@ -17,7 +17,10 @@ export default function Main() {
   const addMovies = (str = "avengers", type="all") => {
     fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${str}${type !== 'all' ? `&type=${type}` : ''}`)
       .then((response) => response.json())
-      .then((data) => setMovies(data.Search), setLoading(false))
+      .then((data) => {
+        setMovies(data.Search);
+        setLoading(false);
+      })
       .catch((err) => {
         console.error(err);
         setLoading(false);
