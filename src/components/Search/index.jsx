@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./style.css";
 
 export default function Search({ searchMovies }) {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("Avengers");
   const [type, setType] = useState("all");
 
   const handleKey = (e) => {
